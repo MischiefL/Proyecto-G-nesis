@@ -3,140 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lunes: Piernas de Héroe</title>
+    <title>Lunes: Protocolo Génesis</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+        body { font-family: 'DM Sans', sans-serif; background-color: #f8fafc; color: #334155; }
         
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background-color: #fdfbf7;
-            color: #3d405b;
-        }
-        .glass-card {
-            background: white;
-            border-radius: 1.5rem;
-            box-shadow: 0 4px 20px rgba(61, 64, 91, 0.05);
-            border: 1px solid #f1f1f1;
-        }
-        .step-number {
-            display:flex; align-items:center; justify-content:center;
-            width: 2rem; height: 2rem; border-radius: 999px;
-            background-color: #3d405b; color: white; font-weight: bold; font-size: 0.875rem; flex-shrink: 0;
-        }
+        /* Estilos para Pestañas */
+        .tab-btn { transition: all 0.3s ease; border-bottom: 3px solid transparent; opacity: 0.6; }
+        .tab-btn.active { opacity: 1; border-color: #0ea5e9; color: #0284c7; }
+        .tab-content { display: none; animation: fadeIn 0.4s ease; }
+        .tab-content.active { display: block; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Checkbox Personalizado para la Bitácora */
+        .habit-checkbox:checked + div { background-color: #10b981; border-color: #10b981; }
+        .habit-checkbox:checked + div i { opacity: 1; }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="pb-20">
 
-    <nav class="sticky top-4 z-50 mb-8 max-w-5xl mx-auto">
-        <div class="backdrop-blur-xl bg-white/80 border border-slate-200/70 shadow-sm rounded-2xl px-4 py-3 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight text-slate-800">
-                <span class="inline-flex w-8 h-8 rounded-lg bg-emerald-600 text-white items-center justify-center">G</span>
-                <span class="hidden sm:inline">Proyecto Génesis</span>
-            </a>
-            <a href="index.html" class="px-3 py-2 rounded-xl bg-slate-900 text-white text-[11px] font-bold shadow-sm">Volver</a>
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center gap-2">
+            <a href="index.html" class="w-8 h-8 bg-slate-900 text-white rounded-lg flex items-center justify-center font-bold text-xs"><i class="fas fa-arrow-left"></i></a>
+            <h1 class="font-bold text-slate-800">Lunes</h1>
+        </div>
+        <div class="flex gap-4 text-sm font-bold">
+            <button onclick="switchTab('fisico')" id="btn-fisico" class="tab-btn active pb-1">Físico</button>
+            <button onclick="switchTab('intelecto')" id="btn-intelecto" class="tab-btn pb-1">Intelecto</button>
+            <button onclick="switchTab('bitacora')" id="btn-bitacora" class="tab-btn pb-1">Bitácora</button>
         </div>
     </nav>
 
-    <div class="max-w-5xl mx-auto">
-        <header class="text-center mb-10">
-            <div class="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-widest mb-3">Enfoque Deku</div>
-            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-2">Piernas de Héroe</h1>
-            <p class="text-slate-500 font-medium text-sm italic">Blindaje de Rodillas & Fuerza Base</p>
-        </header>
+    <div class="max-w-3xl mx-auto p-4 md:p-6">
 
-        <section class="mb-12">
-            <div class="flex items-center gap-2 mb-6">
-                <span class="text-2xl">🔥</span>
-                <h2 class="text-xl font-bold text-slate-800">Fase 1: Motor (Cardio)</h2>
-            </div>
-            
-            <div class="glass-card p-0 overflow-hidden">
-                <div class="bg-emerald-600 p-6 text-white">
-                    <h3 class="text-2xl font-bold italic uppercase">Caminata de Poder</h3>
-                    <p class="opacity-80 text-sm">Duración Total: 20 Minutos en Caminadora</p>
+        <div id="tab-fisico" class="tab-content active">
+            <header class="mb-6">
+                <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider bg-emerald-100 px-2 py-1 rounded">Enfoque Deku</span>
+                <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Piernas de Héroe</h2>
+            </header>
+
+            <div class="grid grid-cols-2 gap-3 mb-6">
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <i class="fas fa-fire text-orange-500 mb-2"></i>
+                    <p class="text-xs text-slate-500 uppercase font-bold">Cardio</p>
+                    <p class="font-bold text-slate-800">20 Minutos</p>
                 </div>
-                <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="font-bold text-slate-700 mb-2 text-sm uppercase">0-5 Min: Calentamiento</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li>• Velocidad: <strong>3.0 mph</strong></li>
-                            <li>• Inclinación: 0</li>
-                            <li>• <em>Mueve los brazos, respira profundo.</em></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-emerald-600 mb-2 text-sm uppercase">5-20 Min: Zona de Trabajo</h4>
-                        <ul class="text-sm text-slate-600 space-y-2">
-                            <li>• Velocidad: <strong>3.5 - 4.0 mph</strong></li>
-                            <li>• Inclinación: <strong>2 - 3</strong></li>
-                            <li>• <em>Debes sentir el esfuerzo en glúteos al empujar.</em></li>
-                        </ul>
-                    </div>
+                <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+                    <i class="fas fa-dumbbell text-emerald-500 mb-2"></i>
+                    <p class="text-xs text-slate-500 uppercase font-bold">Fuerza</p>
+                    <p class="font-bold text-slate-800">3 Series</p>
                 </div>
             </div>
-        </section>
 
-        <section class="mb-16">
-            <div class="flex items-center gap-2 mb-6">
-                <span class="text-2xl">⚡️</span>
-                <h2 class="text-xl font-bold text-slate-800">Fase 2: Fuerza (3 Series)</h2>
+            <div class="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 mb-4">
+                <h3 class="font-bold text-slate-700 mb-3">Rutina Principal</h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center gap-3 text-sm text-slate-600">
+                        <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs">1</span>
+                        Goblet Squat (12 Reps)
+                    </li>
+                    <li class="flex items-center gap-3 text-sm text-slate-600">
+                        <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs">2</span>
+                        Wall Sit (45 Seg)
+                    </li>
+                    <li class="flex items-center gap-3 text-sm text-slate-600">
+                        <span class="w-6 h-6 rounded-full bg-slate-100 flex items-center justify-center font-bold text-xs">3</span>
+                        Puente Glúteos (15 Reps)
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="tab-intelecto" class="tab-content">
+            <header class="mb-6">
+                <span class="text-xs font-bold text-blue-600 uppercase tracking-wider bg-blue-100 px-2 py-1 rounded">Brain Power</span>
+                <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Entrenamiento Neural</h2>
+            </header>
+
+            <div class="bg-slate-900 text-slate-200 rounded-2xl p-6 shadow-lg mb-6 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-4 opacity-10"><i class="fas fa-code text-6xl"></i></div>
+                <h3 class="font-bold text-white text-lg mb-1"><i class="fas fa-laptop-code mr-2 text-blue-400"></i> C# / .NET Core</h3>
+                <p class="text-sm text-slate-400 mb-4">Objetivo: Profundizar en Backend</p>
+                <div class="bg-slate-800/50 p-3 rounded-lg border border-slate-700">
+                    <p class="text-xs font-mono text-emerald-400">>_ Tarea de hoy:</p>
+                    <p class="text-sm mt-1">Revisar Stored Procedures y optimización SQL del proyecto del trabajo.</p>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 gap-4">
-                <div class="glass-card p-6 border-l-4 border-emerald-500">
-                    <div class="flex gap-4">
-                        <div class="step-number">1</div>
-                        <div>
-                            <h3 class="font-bold text-slate-800">Goblet Squat (Sentadilla Copa)</h3>
-                            <p class="text-xs text-slate-500 font-bold uppercase mb-2">12 Repeticiones</p>
-                            <p class="text-sm text-slate-600 leading-relaxed">
-                                Sostén 1 mancuerna al pecho. Separa los pies. Baja lento y sube rápido. 
-                                <br><span class="text-emerald-600 font-bold">Tip:</span> Si duelen las rodillas, baja menos (media sentadilla).
-                            </p>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-indigo-100 border-l-4 border-l-indigo-500">
+                <h3 class="font-bold text-slate-800 text-lg mb-2"><i class="fas fa-brain mr-2 text-indigo-600"></i> Inglés (Neuro-Protocol)</h3>
+                
+                <div class="mb-4">
+                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">🌅 Input + Cardio (Mañana)</h4>
+                    <a href="https://www.youtube.com/c/IAmTimCorey" target="_blank" class="block bg-indigo-50 hover:bg-indigo-100 p-3 rounded-lg transition-colors flex items-center gap-3">
+                        <i class="fab fa-youtube text-red-500"></i>
+                        <span class="text-sm font-medium text-indigo-900">Escuchar: Tim Corey (C# Concepts)</span>
+                    </a>
+                </div>
+
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">☀️ Mining (Tarde - 20min)</h4>
+                    <p class="text-sm text-slate-600 mb-2">Busca 3 oraciones con vocabulario técnico en Reddit/Docs.</p>
+                    <div class="bg-slate-50 border border-slate-200 p-3 rounded text-sm text-slate-500 italic">
+                        "Objetivo: Encontrar palabras clave de impresión 3D o SQL."
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tab-bitacora" class="tab-content">
+            <header class="mb-6">
+                <span class="text-xs font-bold text-purple-600 uppercase tracking-wider bg-purple-100 px-2 py-1 rounded">Save Game</span>
+                <h2 class="text-2xl font-extrabold text-slate-900 mt-2">Registro Diario</h2>
+            </header>
+
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100 mb-6">
+                <h3 class="font-bold text-slate-800 mb-4">Hábitos Completados</h3>
+                <div class="space-y-3">
+                    
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="check-gym" class="hidden habit-checkbox" onchange="saveProgress()">
+                        <div class="w-6 h-6 rounded border-2 border-slate-300 flex items-center justify-center transition-all">
+                            <i class="fas fa-check text-white text-xs opacity-0"></i>
                         </div>
-                    </div>
-                </div>
+                        <span class="text-slate-600 group-hover:text-slate-900 font-medium">Rutina Pierna Terminada</span>
+                    </label>
 
-                <div class="glass-card p-6 border-l-4 border-emerald-500 bg-emerald-50/50">
-                    <div class="flex gap-4">
-                        <div class="step-number">2</div>
-                        <div>
-                            <h3 class="font-bold text-slate-800 flex items-center gap-2">
-                                Wall Sit (Silla en Pared)
-                                <span class="px-2 py-1 rounded bg-emerald-200 text-emerald-800 text-[10px] uppercase">Seguro</span>
-                            </h3>
-                            <p class="text-xs text-slate-500 font-bold uppercase mb-2">30 a 45 Segundos</p>
-                            <p class="text-sm text-slate-600 leading-relaxed">
-                                Recarga tu espalda en una pared y baja como si te sentaras en una silla invisible. Tus piernas deben formar un ángulo de 90°. Aguanta el ardor.
-                                <br><em>Esto fortalece el tendón sin mover la rodilla.</em>
-                            </p>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="check-english" class="hidden habit-checkbox" onchange="saveProgress()">
+                        <div class="w-6 h-6 rounded border-2 border-slate-300 flex items-center justify-center transition-all">
+                            <i class="fas fa-check text-white text-xs opacity-0"></i>
                         </div>
-                    </div>
-                </div>
+                        <span class="text-slate-600 group-hover:text-slate-900 font-medium">Input Inglés (Podcast/Video)</span>
+                    </label>
 
-                <div class="glass-card p-6 border-l-4 border-emerald-500">
-                    <div class="flex gap-4">
-                        <div class="step-number">3</div>
-                        <div>
-                            <h3 class="font-bold text-slate-800">Puente de Glúteos</h3>
-                            <p class="text-xs text-slate-500 font-bold uppercase mb-2">15 Repeticiones</p>
-                            <p class="text-sm text-slate-600 leading-relaxed">
-                                Acostada boca arriba. Levanta la cadera apretando fuerte los glúteos arriba. Este es el mejor ejercicio para proteger tu espalda baja.
-                            </p>
+                    <label class="flex items-center gap-3 cursor-pointer group">
+                        <input type="checkbox" id="check-code" class="hidden habit-checkbox" onchange="saveProgress()">
+                        <div class="w-6 h-6 rounded border-2 border-slate-300 flex items-center justify-center transition-all">
+                            <i class="fas fa-check text-white text-xs opacity-0"></i>
                         </div>
-                    </div>
+                        <span class="text-slate-600 group-hover:text-slate-900 font-medium">Sesión Código (C#/SQL)</span>
+                    </label>
                 </div>
             </div>
-        </section>
 
-        <section class="mb-12">
-            <div class="glass-card p-6 bg-slate-50 border border-slate-200">
-                <h3 class="text-sm font-bold text-slate-700 uppercase mb-2">🧘 Enfriamiento Obligatorio</h3>
-                <p class="text-sm text-slate-600">Dedica 5 minutos a estirar. Si sentiste molestia en rodillas, aplica hielo 10 minutos al terminar.</p>
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-100">
+                <h3 class="font-bold text-slate-800 mb-2">Notas del Capitán</h3>
+                <p class="text-xs text-slate-400 mb-3">¿Cómo te sentiste? ¿Qué aprendiste hoy?</p>
+                <textarea id="daily-notes" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-3 text-sm text-slate-700 focus:outline-none focus:border-purple-400 h-32" placeholder="Escribe aquí..." oninput="saveProgress()"></textarea>
+                <p id="save-status" class="text-xs text-emerald-500 mt-2 text-right opacity-0 transition-opacity">Guardado ✓</p>
             </div>
-        </section>
+        </div>
 
     </div>
+
+    <script>
+        // 1. Lógica de Pestañas
+        function switchTab(tabName) {
+            // Esconder todo
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            // Mostrar seleccionado
+            document.getElementById('tab-' + tabName).classList.add('active');
+            document.getElementById('btn-' + tabName).classList.add('active');
+        }
+
+        // 2. Lógica de Guardado (LocalStorage)
+        const dayKey = 'Lunes_Data'; // Clave única para este día
+
+        // Cargar datos al abrir la página
+        window.onload = function() {
+            const savedData = JSON.parse(localStorage.getItem(dayKey));
+            if (savedData) {
+                document.getElementById('check-gym').checked = savedData.gym || false;
+                document.getElementById('check-english').checked = savedData.english || false;
+                document.getElementById('check-code').checked = savedData.code || false;
+                document.getElementById('daily-notes').value = savedData.notes || '';
+            }
+        };
+
+        // Guardar datos cada vez que cambie algo
+        function saveProgress() {
+            const data = {
+                gym: document.getElementById('check-gym').checked,
+                english: document.getElementById('check-english').checked,
+                code: document.getElementById('check-code').checked,
+                notes: document.getElementById('daily-notes').value
+            };
+            
+            localStorage.setItem(dayKey, JSON.stringify(data));
+            
+            // Efecto visual de "Guardado"
+            const status = document.getElementById('save-status');
+            status.style.opacity = '1';
+            setTimeout(() => status.style.opacity = '0', 2000);
+        }
+    </script>
 </body>
 </html>
