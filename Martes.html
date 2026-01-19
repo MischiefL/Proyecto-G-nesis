@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martes: Brazos de Acróbata</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+        body { font-family: 'DM Sans', sans-serif; background-color: #f8fafc; color: #334155; }
+        .glass-card { background: white; border-radius: 1.5rem; box-shadow: 0 4px 20px rgba(148, 163, 184, 0.1); border: 1px solid #e2e8f0; }
+        .step-number { display:flex; align-items:center; justify-content:center; width: 2rem; height: 2rem; border-radius: 999px; background-color: #0ea5e9; color: white; font-weight: bold; font-size: 0.875rem; flex-shrink: 0; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <nav class="sticky top-4 z-50 mb-8 max-w-5xl mx-auto">
+        <div class="backdrop-blur-xl bg-white/80 border border-slate-200/70 shadow-sm rounded-2xl px-4 py-3 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 font-extrabold tracking-tight text-slate-800">
+                <span class="inline-flex w-8 h-8 rounded-lg bg-sky-500 text-white items-center justify-center">R</span>
+                <span class="hidden sm:inline">Proyecto Génesis</span>
+            </a>
+            <a href="index.html" class="px-3 py-2 rounded-xl bg-slate-900 text-white text-[11px] font-bold shadow-sm">Volver</a>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto">
+        <header class="text-center mb-10">
+            <div class="inline-block px-3 py-1 rounded-full bg-sky-100 text-sky-700 text-[10px] font-bold uppercase tracking-widest mb-3">Enfoque Robin</div>
+            <h1 class="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-2">Brazos de Acróbata</h1>
+            <p class="text-slate-500 font-medium text-sm italic">Definición de Brazos & Control de Core</p>
+        </header>
+
+        <section class="mb-12">
+            <div class="glass-card p-0 overflow-hidden">
+                <div class="bg-sky-500 p-6 text-white">
+                    <h3 class="text-2xl font-bold italic uppercase">Bici: Ritmo Constante</h3>
+                    <p class="opacity-80 text-sm">20 Minutos • Resistencia Media</p>
+                </div>
+                <div class="p-6">
+                    <ul class="space-y-3 text-sm text-slate-600">
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Nivel de Resistencia: <strong>4 a 6</strong> (de 16).</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Ritmo: <strong>Constante</strong>. Debes poder hablar pero respirando agitado.</li>
+                        <li class="flex items-center gap-3"><span class="w-2 h-2 rounded-full bg-sky-500"></span>Foco: Respiración nasal controlada.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16 space-y-4">
+            <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">⚡️ Fuerza (3 Series)</h2>
+            
+            <div class="glass-card p-6 border-l-4 border-sky-500 flex gap-4">
+                <div class="step-number">1</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Press Militar (Hombros)</h3>
+                    <p class="text-xs text-slate-500 font-bold uppercase mb-1">12 Repeticiones</p>
+                    <p class="text-sm text-slate-600">Sentada o de pie. Sube las mancuernas desde los hombros hasta estirar los brazos arriba. Baja controlado.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 border-l-4 border-sky-500 flex gap-4">
+                <div class="step-number">2</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Extensión de Tríceps (Adiós flacidez)</h3>
+                    <p class="text-xs text-slate-500 font-bold uppercase mb-1">15 Repeticiones</p>
+                    <p class="text-sm text-slate-600">Sostén 1 mancuerna con ambas manos detrás de tu cabeza. Estira los codos hacia el techo y vuelve a doblar.</p>
+                </div>
+            </div>
+
+            <div class="glass-card p-6 border-l-4 border-sky-500 flex gap-4">
+                <div class="step-number">3</div>
+                <div>
+                    <h3 class="font-bold text-slate-800">Dead Bug (Core Seguro)</h3>
+                    <p class="text-xs text-slate-500 font-bold uppercase mb-1">10 Reps por lado</p>
+                    <p class="text-sm text-slate-600">Acostada boca arriba, brazos y piernas al aire. Baja brazo derecho y pierna izquierda lento. Alterna. Mantén la espalda pegada al suelo.</p>
+                </div>
+            </div>
+        </section>
+        
+         <section class="mb-12">
+            <div class="glass-card p-6 bg-slate-50 text-center">
+                <p class="text-sm text-slate-600">🧘 <strong>Enfriamiento:</strong> Estira tríceps (brazo tras cabeza) y pecho.</p>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
